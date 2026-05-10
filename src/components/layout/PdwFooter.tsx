@@ -1,4 +1,9 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
 import { Locale } from "@/i18n/config";
+import { useState, useEffect } from "react";
 
 interface PdwFooterProps {
   lang: Locale;
@@ -6,17 +11,232 @@ interface PdwFooterProps {
 }
 
 export function PdwFooter({ lang, dict }: PdwFooterProps) {
+  const [currentYear] = useState(() => new Date().getFullYear());
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const footer = document.getElementById("pdw-footer");
+    if (footer) observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const partners = [
+    {
+      name: "Blockchain.PT",
+      subtitle: "Agenda de Inovação",
+      url: "https://blockchain.pt/",
+      image: "/Projeto-logos-2.png",
+      position: "left",
+    },
+    {
+      name: "TecMinho",
+      subtitle: "Universidade do Minho Interface",
+      url: "https://www.tecminho.uminho.pt/",
+      image: "/Projeto-logos-2.png",
+      position: "right",
+    },
+  ];
+
+  const quickLinks = [
+    { href: `/${lang}/sobre`, label: dict.nav.about },
+    { href: `/${lang}/solucao`, label: dict.nav.solution },
+    { href: `/${lang}/casos-de-uso`, label: dict.nav.useCases },
+    { href: `/${lang}/contactos`, label: dict.nav.contacts },
+  ];
+
   return (
-    <footer className="site-footer">
+    <footer
+      id="pdw-footer"
+      className={`footer-disruptive ${isVisible ? "footer-visible" : ""}`}
+    >
+      {/* Animated background elements */}
+      <div className="footer-bg-grid" aria-hidden="true">
+        <div className="footer-glow footer-glow-1" />
+        <div className="footer-glow footer-glow-2" />
+      </div>
+
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
-          <div>
-            <p style={{ margin: '0 0 4px', fontWeight: 600 }}>Portuguese Digital Wallet</p>
-            <p style={{ margin: 0 }}>{dict.footer.address}</p>
-            <p style={{ margin: 0 }}>{dict.footer.email}</p>
+        {/* Top divider with gradient */}
+        <div className="footer-divider" />
+
+        {/* Main footer grid */}
+        <div className="footer-grid">
+          {/* Column 1: Brand & Info */}
+          <div className="footer-col footer-brand-col">
+            <Link href={`/${lang}`} className="footer-brand-link">
+              <Image
+                src="/pdw_logo.png"
+                alt="PDW Logo"
+                width={36}
+                height={36}
+                className="footer-brand-logo"
+              />
+              <span className="footer-brand-name">
+                Portuguese Digital Wallet
+              </span>
+            </Link>
+            <p className="footer-description">
+              {lang === "pt"
+                ? "Infraestrutura crítica de confiança para a economia descentralizada portuguesa."
+                : "Critical trust infrastructure for the Portuguese decentralized economy."}
+            </p>
+            <div className="footer-contact-info">
+              <div className="footer-info-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>{dict.footer.address}</span>
+              </div>
+              <div className="footer-info-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <a
+                  href={`mailto:${dict.footer.email}`}
+                  className="footer-email-link"
+                >
+                  {dict.footer.email}
+                </a>
+              </div>
+            </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ margin: 0 }}>{dict.footer.copyright}</p>
+
+          {/* Column 2: Quick Links */}
+          <div className="footer-col footer-links-col">
+            <h3 className="footer-col-title">
+              {lang === "pt" ? "Navegação" : "Navigation"}
+            </h3>
+            <nav className="footer-nav" aria-label="Footer navigation">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="footer-nav-link"
+                >
+                  <span className="footer-link-arrow">→</span>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 3: Partners with grayscale → color effect */}
+          <div className="footer-col footer-partners-col">
+            <h3 className="footer-col-title">
+              {lang === "pt" ? "Parceiros do Projeto" : "Project Partners"}
+            </h3>
+            <div className="footer-partners-grid">
+              {partners.map((partner) => (
+                <a
+                  key={partner.name}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-partner-card"
+                  title={`${lang === "pt" ? "Visitar" : "Visit"} ${partner.name}`}
+                >
+                  <div
+                    className="partner-image-wrapper"
+                    data-position={partner.position}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={partner.image}
+                      alt={partner.name}
+                      className="partner-logo-img"
+                    />
+                  </div>
+                  <div className="partner-info">
+                    <span className="partner-name">{partner.name}</span>
+                    <span className="partner-external-icon">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Funders section */}
+        <div className="footer-funders">
+          <div className="footer-funders-label">
+            {lang === "pt" ? "Financiado por" : "Funded by"}
+          </div>
+          <div className="footer-funders-logos">
+            <Image
+              src="/financiadores-3logos.png"
+              alt={
+                lang === "pt"
+                  ? "PRR, República Portuguesa, União Europeia"
+                  : "PRR, Portuguese Republic, European Union"
+              }
+              width={500}
+              height={60}
+              className="funders-img"
+            />
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="footer-bottom">
+          <p className="footer-copyright">
+            © {currentYear} Portuguese Digital Wallet.{" "}
+            {lang === "pt"
+              ? "Financiado por PRR & NextGenerationEU."
+              : "Funded by PRR & NextGenerationEU."}
+          </p>
+          <div className="footer-legal-links">
+            <Link href={`/${lang}/privacidade`} className="footer-legal-link">
+              {lang === "pt" ? "Política de Privacidade" : "Privacy Policy"}
+            </Link>
+            <span className="footer-legal-sep">·</span>
+            <Link href={`/${lang}/termos`} className="footer-legal-link">
+              {lang === "pt" ? "Termos de Utilização" : "Terms of Use"}
+            </Link>
           </div>
         </div>
       </div>
