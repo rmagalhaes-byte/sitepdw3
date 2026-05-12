@@ -3,7 +3,6 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { ValuePillars } from "@/components/sections/ValuePillars";
 import { UseCasesGrid } from "@/components/sections/UseCasesGrid";
 import { DiplomaCaseSection } from "@/components/sections/DiplomaCaseSection";
-import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Locale } from "@/i18n/config";
@@ -61,7 +60,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <HeroInstitutional lang={lang as Locale} dict={dict} />
       <TrustBar dict={dict} />
       <ValuePillars dict={dict} />
-      <VideoShowcase dict={dict} />
       <DiplomaCaseSection lang={lang as Locale} dict={dict} />
       <section style={{ marginTop: 40 }}>
         <SectionHeading

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Locale } from "@/i18n/config";
+import { useState } from "react";
+import { VideoModal } from "@/components/ui/VideoModal";
 
 interface HeroProps {
   lang: Locale;
@@ -10,6 +14,8 @@ interface HeroProps {
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=pt.tecminho.pdw&pcampaignid=web_share";
 
 export function HeroInstitutional({ lang, dict }: HeroProps) {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -23,9 +29,9 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
           {dict.hero.description}
         </p>
         <div className="btn-row">
-          <Link href={`/${lang}/casos-de-uso/diplomas-digitais`} className="cta cta-disruptive">
+          <button onClick={() => setIsVideoOpen(true)} className="cta cta-disruptive" style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '14px' }}>
             {dict.hero.ctaDemo}
-          </Link>
+          </button>
           <a 
             href={PLAY_STORE_URL} 
             target="_blank" 
@@ -51,6 +57,11 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
           priority
         />
       </div>
+      <VideoModal 
+        isOpen={isVideoOpen} 
+        onClose={() => setIsVideoOpen(false)} 
+        videoSrc="/concept_video.mp4" 
+      />
     </section>
   );
 }
