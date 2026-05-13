@@ -32,10 +32,10 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
           <button onClick={() => setIsVideoOpen(true)} className="cta cta-disruptive" style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '14px' }}>
             {dict.hero.ctaDemo}
           </button>
-          <a 
-            href={PLAY_STORE_URL} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
@@ -48,19 +48,19 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
       </div>
       <div className="hero-image-container">
         <div className="image-glow"></div>
-        <Image 
-          src={dict.hero.image} 
-          alt={dict.hero.title} 
-          width={600} 
-          height={600} 
+        <Image
+          src={dict.hero.image}
+          alt={dict.hero.title}
+          width={300}
+          height={300}
           className="disruptive-image"
           priority
         />
       </div>
-      <VideoModal 
-        isOpen={isVideoOpen} 
-        onClose={() => setIsVideoOpen(false)} 
-        videoSrc="/concept_video.mp4" 
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        videoSrc="https://youtube.com/shorts/RpFd11ooRag?feature=share"
       />
     </section>
   );

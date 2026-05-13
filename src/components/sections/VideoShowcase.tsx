@@ -1,26 +1,14 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { useRef, useState } from "react";
 
 interface VideoShowcaseProps {
   dict: any;
 }
 
 export function VideoShowcase({ dict }: VideoShowcaseProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  // URL de embed do YouTube (Shorts)
+  const embedUrl = "https://www.youtube.com/embed/RpFd11ooRag";
 
   return (
     <AnimatedSection delay={0.15}>
@@ -39,40 +27,22 @@ export function VideoShowcase({ dict }: VideoShowcaseProps) {
 
         <div className="video-showcase-wrapper">
           <div className="video-showcase-glow" />
-          <div className="video-showcase-container" onClick={handlePlay}>
-            <video
-              ref={videoRef}
-              playsInline
-              muted
-              loop
-              preload="metadata"
-              className="video-showcase-player"
-              poster="/Imagem-home.png"
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            >
-              <source src="/concept_video.mp4" type="video/mp4" />
-            </video>
-
-            {/* Play/Pause overlay */}
-            <div className={`video-showcase-overlay ${isPlaying ? 'video-playing' : ''}`}>
-              <button
-                className="video-play-btn"
-                aria-label={isPlaying ? "Pause" : "Play"}
-                onClick={(e) => { e.stopPropagation(); handlePlay(); }}
-              >
-                {isPlaying ? (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                    <rect x="6" y="4" width="4" height="16" rx="1" />
-                    <rect x="14" y="4" width="4" height="16" rx="1" />
-                  </svg>
-                ) : (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                    <polygon points="6,3 20,12 6,21" />
-                  </svg>
-                )}
-              </button>
-            </div>
+          <div 
+            className="video-showcase-container" 
+            style={{ 
+              maxWidth: '400px', // Mais estreito para formato Short (vertical)
+              margin: '0 auto',
+              aspectRatio: '9/16'
+            }}
+          >
+            <iframe
+              src={embedUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{ width: '100%', height: '100%', display: 'block' }}
+            />
           </div>
         </div>
       </section>

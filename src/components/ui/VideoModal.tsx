@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 interface VideoModalProps {
@@ -10,42 +9,30 @@ interface VideoModalProps {
 }
 
 export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      // Auto-play when opened, properly handling the promise
-      if (videoRef.current) {
-        const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            // Ignore AbortError as it simply means the user closed the modal before the video started
-            if (error.name !== "AbortError") {
-              console.error("Error playing video:", error);
-            }
-          });
-        }
-      }
-    } else {
-      document.body.style.overflow = "unset";
-      // We don't need to manually call pause() here because when isOpen is false, 
-      // the component returns null, removing the <video> from the DOM which stops it automatically.
-    }
-    
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
   if (!isOpen || typeof document === 'undefined') return null;
+
+  // Garantir que a URL do YouTube usa a versão 'embed'
+  let embedUrl = videoSrc;
+  if (videoSrc.includes("youtube.com/shorts/")) {
+    const videoId = videoSrc.split("youtube.com/shorts/")[1]?.split("?")[0];
+    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  }
 
   return createPortal(
     <div className="modal-overlay" onClick={onClose} style={{ zIndex: 9999 }}>
       <div 
         className="modal-content" 
         onClick={(e) => e.stopPropagation()} 
-        style={{ maxWidth: '800px', backgroundColor: '#000', padding: 0, border: 'none', position: 'relative' }}
+        style={{ 
+          maxWidth: '400px', // Mais estreito para formato Short (vertical)
+          width: '90%',
+          backgroundColor: '#000', 
+          padding: 0, 
+          border: 'none', 
+          position: 'relative',
+          borderRadius: '16px',
+          overflow: 'hidden'
+        }}
       >
         <button 
           onClick={onClose} 
@@ -73,17 +60,21 @@ export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
           </svg>
         </button>
         
-        <video
-          ref={videoRef}
-          controls
-          playsInline
-          className="video-showcase-player"
-          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '16px' }}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        <iframe
+          src={embedUrl}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{ 
+            width: '100%', 
+            aspectRatio: '9/16', // Formato Short
+            display: 'block' 
+          }}
+        />
       </div>
     </div>,
     document.body
   );
 }
+
