@@ -254,13 +254,127 @@
     "dataCollected": "Collected data: Name, Institution, Email, and Message (form only).",
     "purpose": "Purpose: Responding to information requests and partnerships.",
     "legalBase": "Legal Basis: User consent.",
-    "contact": "For privacy inquiries: rmagalhaes@tecminho.uminho.pt"
+    "contact": "For privacy inquiries: rmagalhaes@tecminho.uminho.pt",
+    "doc": {
+      "title": "Privacy Policy",
+      "lastUpdated": "May 2026",
+      "preamble": "PDW respects your digital sovereignty. This site only collects data voluntarily submitted for institutional contact purposes. In compliance with GDPR, we guarantee the right of access, rectification, and deletion of your personal data.",
+      "sections": [
+        {
+          "id": "data-collected",
+          "title": "Data Collected",
+          "body": [
+            "We only collect data you voluntarily submit through the contact form: Name, Institution, Email Address, and Message.",
+            "We do not collect browsing data, do not use tracking cookies, and do not share any data with third parties for commercial purposes."
+          ]
+        },
+        {
+          "id": "purpose",
+          "title": "Purpose of Processing",
+          "body": [
+            "Data is used exclusively to respond to institutional information requests and establish partnerships within the scope of the Portuguese Digital Wallet.",
+            "Your data is not used for any marketing, profiling, or commercial analysis purposes."
+          ]
+        },
+        {
+          "id": "legal-basis",
+          "title": "Legal Basis",
+          "body": [
+            "The processing of your data is based on your explicit consent, pursuant to Article 6(1)(a) of the General Data Protection Regulation (GDPR).",
+            "You may withdraw your consent at any time, without affecting the lawfulness of processing carried out based on consent before its withdrawal."
+          ]
+        },
+        {
+          "id": "rights",
+          "title": "Your Rights",
+          "body": [
+            "Under the GDPR, you have the right to access, rectification, erasure, portability, restriction, and objection to the processing of your personal data.",
+            "To exercise any of these rights, please contact us at the address below. We will respond within a maximum of 30 days."
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Data Security",
+          "body": [
+            "We adopt appropriate technical and organisational measures to protect your data against unauthorised access, alteration, disclosure, or accidental or unlawful destruction."
+          ]
+        }
+      ],
+      "contact": "For privacy inquiries or exercise of rights: rmagalhaes@tecminho.uminho.pt"
+    }
   },
   "terms": {
     "title": "Terms of Use",
     "text": "The content of this site is for information purposes. Use of the PDW brand and associated content is subject to prior authorization from TecMinho and Blockchain.PT Agenda partners.",
     "liability": "Limitation of Liability: Information is provided 'as is', without guarantees of immediate updates regarding technical development.",
-    "copyright": "Copyright: All rights reserved to TecMinho and partners."
+    "copyright": "Copyright: All rights reserved to TecMinho and partners.",
+    "doc": {
+      "title": "Terms of Use",
+      "lastUpdated": "May 2026",
+      "preamble": "By accessing and using the Portuguese Digital Wallet (PDW) website, you agree to these Terms of Use. Please read them carefully before proceeding.",
+      "sections": [
+        {
+          "id": "scope",
+          "title": "Scope and Use",
+          "body": [
+            "This website is intended exclusively for the dissemination of institutional information about the Portuguese Digital Wallet, its services, partners, and mission.",
+            "Any use that violates applicable law, third-party rights, or that damages the reputation of PDW, TecMinho, or its partners is prohibited."
+          ]
+        },
+        {
+          "id": "intellectual-property",
+          "title": "Intellectual Property and Copyright",
+          "body": [
+            "All content on this site — including texts, images, logos, graphics and software — is the property of TecMinho and the Blockchain.PT Agenda consortium partners, protected by copyright and intellectual property law.",
+            "Total or partial reproduction of any content without prior written authorisation is expressly prohibited."
+          ]
+        },
+        {
+          "id": "liability",
+          "title": "Limitation of Liability",
+          "body": [
+            "Information provided is offered 'as is', without any guarantees of completeness, accuracy, or immediate updates regarding the technical development of the project.",
+            "TecMinho is not responsible for any direct or indirect damages resulting from the use or inability to use this website."
+          ]
+        },
+        {
+          "id": "external-links",
+          "title": "External Links",
+          "body": [
+            "This site may contain links to third-party websites. These links are provided for convenience only and do not imply any endorsement or responsibility for their content."
+          ]
+        },
+        {
+          "id": "changes",
+          "title": "Changes to Terms",
+          "body": [
+            "We reserve the right to update these Terms of Use at any time. Changes take effect upon publication on this site."
+          ]
+        }
+      ],
+      "contact": "For questions related to the Terms of Use: rmagalhaes@tecminho.uminho.pt"
+    }
+  },
+  "home": {
+    "pullquote": {
+      "figureNumber": "10%",
+      "figureLabel": "of global GDP\non blockchain by 2027",
+      "quote": "PDW turns this opportunity into a <strong>sovereign advantage</strong>, ensuring Portugal leads the value layer of the decentralised economy — instead of importing it.",
+      "source": "Business Plan · PDW",
+      "sourceRole": "«Decentralise Portugal with Blockchain» Agenda",
+      "sourceCitation": "World Economic Forum projection"
+    },
+    "statsBanner": {
+      "eyebrow": "Blockchain.PT Agenda in numbers",
+      "title": "The scale of the consortium that makes PDW possible.",
+      "footer": "Funded by PRR · NextGenerationEU · Institutional coordination by TecMinho",
+      "stats": [
+        { "num": "72.9", "suffix": "M€", "label": "Total consortium\ninvestment" },
+        { "num": "26",   "suffix": "",   "label": "Innovative products\non the Agenda" },
+        { "num": "378",  "suffix": "",   "label": "Professionals\nmobilised" },
+        { "num": "44",   "suffix": "",   "label": "Entities · 24 SMEs\n15 RTOs · 5 Public" }
+      ]
+    }
   },
   "footer": {
     "address": "TecMinho - Azurém Campus, Guimarães, Portugal",
