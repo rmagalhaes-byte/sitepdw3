@@ -47,14 +47,19 @@ export function HeroInstitutional({ onPlayDemo, dict, lang }: HeroInstitutionalP
         <p className="hero-description">{dict.hero.description}</p>
         <div className="btn-row">
           <button className="cta cta-disruptive" onClick={onPlayDemo} type="button">
-            ▶ {lang === "pt" ? "Ver vídeo conceito" : "Watch concept video"}
+            <span aria-hidden="true">▶</span>{" "}
+            {lang === "pt" ? "Ver vídeo conceito" : "Watch concept video"}
           </button>
           <a className="btn-secondary" href={`/${lang}/contactos`}>
-            {lang === "pt" ? "Falar com a equipa" : "Talk to the team"} →
+            {lang === "pt" ? "Falar com a equipa" : "Talk to the team"}{" "}
+            <span aria-hidden="true">→</span>
           </a>
         </div>
 
-        <dl className="hero-mini-stats">
+        <dl
+          className="hero-mini-stats"
+          aria-label={lang === "pt" ? "Estatísticas do consórcio" : "Consortium statistics"}
+        >
           <div>
             <dt>72,9 M€</dt>
             <dd>

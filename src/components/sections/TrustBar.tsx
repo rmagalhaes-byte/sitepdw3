@@ -24,12 +24,16 @@ export function TrustBar({ dict }: TrustBarProps) {
   };
 
   return (
-    <section className="section-card trust-bar-section" style={{
-      marginTop: 14,
-      border: '1px solid rgba(0, 108, 75, 0.1)',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
-    }}>
-      <strong className="trust-bar-label">
+    <section
+      className="section-card trust-bar-section"
+      aria-labelledby="trustbar-title"
+      style={{
+        marginTop: 14,
+        border: '1px solid rgba(0, 108, 75, 0.1)',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+      }}
+    >
+      <strong id="trustbar-title" className="trust-bar-label">
         {dict.trustBar.title}
       </strong>
       <div className="trust-bar-logos">

@@ -20,7 +20,7 @@ export function PullQuote({ dict }: PullQuoteProps) {
   if (!t) return null;
 
   return (
-    <section className="pullquote-full" aria-label={t.source}>
+    <section className="pullquote-full" aria-label={`Citação: ${t.source}`}>
       <div className="pullquote-inner">
         <div className="pullquote-figure">
           <div className="pullquote-figure-num">{t.figureNumber}</div>

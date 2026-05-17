@@ -14,7 +14,6 @@ import { HomeHero } from "@/components/sections/HomeHero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { PullQuote } from "@/components/sections/PullQuote";
 import { ValuePillars } from "@/components/sections/ValuePillars";
-import { StatsBanner } from "@/components/sections/StatsBanner";
 import { DiplomaCaseSection } from "@/components/sections/DiplomaCaseSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -82,7 +81,6 @@ export default async function HomePage({
       <TrustBar dict={dict} />
       <PullQuote lang={lang as Locale} dict={dict} />
       <ValuePillars lang={lang as Locale} />
-      <StatsBanner lang={lang as Locale} dict={dict} />
       <DiplomaCaseSection lang={lang as Locale} dict={dict} />
       <ContactCTA lang={lang as Locale} dict={dict} />
     </>
