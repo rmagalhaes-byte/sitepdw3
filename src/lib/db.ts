@@ -1,3 +1,7 @@
+// pdw-site-v2/src/lib/db.ts
+// SUBSTITUI o ficheiro existente. Mantém a tabela `leads` e adiciona as novas
+// (posts, post_likes, post_comments, media) via migrate síncrono no boot.
+
 import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
@@ -10,7 +14,10 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 const db = new Database(DB_PATH);
+db.pragma('journal_mode = WAL');
+db.pragma('foreign_keys = ON');
 
+// ── Tabelas existentes ──────────────────────────────────────────────────────
 db.exec(`
   CREATE TABLE IF NOT EXISTS leads (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,5 +29,17 @@ db.exec(`
     created_at  TEXT DEFAULT (datetime('now'))
   );
 `);
+
+// ── Migrate auto no boot (idempotente, lê o SQL da pasta migrations/) ────────
+const MIGRATIONS_DIR = path.join(process.cwd(), 'migrations');
+if (fs.existsSync(MIGRATIONS_DIR)) {
+  const files = fs.readdirSync(MIGRATIONS_DIR)
+    .filter((f) => f.endsWith('.sql'))
+    .sort();
+  for (const f of files) {
+    const sql = fs.readFileSync(path.join(MIGRATIONS_DIR, f), 'utf8');
+    db.exec(sql);
+  }
+}
 
 export default db;

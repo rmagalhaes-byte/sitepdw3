@@ -4,6 +4,7 @@
     "about": "About",
     "solution": "Solution",
     "useCases": "Use Cases",
+    "news": "News",
     "contacts": "Contacts",
     "cta": "Get the App"
   },
@@ -385,5 +386,13 @@
     "available": "Available",
     "development": "In Development",
     "research": "In Development"
+  },
+  "feed": {
+    "live": "Live",
+    "title": "News",
+    "subtitle": "Everything happening at PDW, in one feed. Videos, podcasts, events and milestones — aggregated from official channels.",
+    "loadMore": "Load more",
+    "empty": "No posts of this kind yet.",
+    "share": "Share"
   }
 }

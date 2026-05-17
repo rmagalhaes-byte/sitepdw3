@@ -23,6 +23,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
     { href: `/${lang}/sobre`, label: dict.nav.about },
     { href: `/${lang}/solucao`, label: dict.nav.solution },
     { href: `/${lang}/casos-de-uso`, label: dict.nav.useCases },
+    { href: `/${lang}/atualidades`, label: dict.nav.news },
     { href: `/${lang}/contactos`, label: dict.nav.contacts }
   ];
 

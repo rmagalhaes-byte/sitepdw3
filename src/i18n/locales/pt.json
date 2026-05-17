@@ -4,6 +4,7 @@
     "about": "Sobre",
     "solution": "Solução",
     "useCases": "Casos de Uso",
+    "news": "Atualidades",
     "contacts": "Contactos",
     "cta": "Obter a App"
   },
@@ -385,5 +386,13 @@
     "available": "Disponível",
     "development": "Em desenvolvimento",
     "research": "Em desenvolvimento"
+  },
+  "feed": {
+    "live": "Em directo",
+    "title": "Atualidades",
+    "subtitle": "Tudo o que se passa na PDW, num só feed. Vídeos, podcasts, eventos e marcos — agregados das redes oficiais.",
+    "loadMore": "Carregar mais",
+    "empty": "Ainda não há posts deste tipo.",
+    "share": "Partilhar"
   }
 }
