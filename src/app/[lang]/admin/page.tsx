@@ -11,6 +11,7 @@ import { PostsManager } from "@/components/admin/PostsManager";
 import { MediaLibrary } from "@/components/admin/MediaLibrary";
 import { AdminTabs } from "@/components/admin/AdminTabs";
 import { SectionsManager } from "@/components/admin/SectionsManager";
+import { LeadsManager } from "@/components/admin/LeadsManager";
 
 export const metadata: Metadata = {
   title: "Administração | PDW",
@@ -50,6 +51,7 @@ export default async function AdminPage({
           slotOptions={["header", "footer-partners", "trustbar", "funders"]}
         />
       )}
+      {tab === "contactos" && <LeadsManager />}
       {tab === "stats" && (
         <div className="admin-card admin-stats-placeholder">
           <div className="admin-card__head"><h2>Estatísticas</h2></div>
