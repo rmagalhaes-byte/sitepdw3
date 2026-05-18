@@ -50,7 +50,7 @@ export function SolucaoContent({ dict, lang }: SolucaoContentProps) {
           <span className="page-hero-eyebrow">Como funciona</span>
           <h3 className="section-title">{dict.solution.flow.title}</h3>
         </header>
-        <FlowImage />
+        <FlowImage lang={lang} />
       </section>
 
       {/* Features */}

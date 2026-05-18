@@ -89,7 +89,7 @@ export function HeroInstitutional({ onPlayDemo, dict, lang }: HeroInstitutionalP
 
       <div className="hero-image-frame">
         <Image
-          src="/Imagem-home.png"
+          src={lang === "en" ? "/EN/Imagem-home-EN1.png" : "/Imagem-home.png"}
           alt={
             lang === "pt"
               ? "Diploma universitário digital exibido na aplicação PDW"
