@@ -111,3 +111,5 @@ export async function POST(req: NextRequest) {
     admin: adminResult.status === 'fulfilled' ? { id: (adminResult.value as any).data?.id } : { error: (adminResult as any).reason?.message },
   }, { status: ok ? 200 : 500 });
 }
+
+export const dynamic = 'force-dynamic';

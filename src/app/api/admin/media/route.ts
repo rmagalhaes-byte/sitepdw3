@@ -14,3 +14,5 @@ export async function GET(req: NextRequest) {
   const items = listMedia(kind ?? undefined);
   return NextResponse.json({ items });
 }
+
+export const dynamic = 'force-dynamic';
