@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'unknown_action' }, { status: 400 });
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_for_build');
   const adminEmail = process.env.ADMIN_EMAIL ?? 'rmagalhaes@tecminho.uminho.pt';
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pdw.tecminho.uminho.pt').replace(/\/$/, '');
 
