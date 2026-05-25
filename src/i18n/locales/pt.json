@@ -135,31 +135,31 @@
         {
           "name": "Pedro Xavier",
           "role": "Gestão e Coordenação",
-          "photo": "/team/pedro-xavier.jpg",
+          "photo": "/team/pedro-xavier.png",
           "linkedin": "https://www.linkedin.com/in/pedro-m-xavier/"
         },
         {
           "name": "Nuno Fernandes",
           "role": "Coordenação Técnica",
-          "photo": "/team/nuno-fernandes.jpg",
+          "photo": "/team/nuno-fernandes.png",
           "linkedin": "https://www.linkedin.com/in/nuno-o-fernandes/"
         },
         {
           "name": "Domingos Freitas",
           "role": "Desenvolvimento",
-          "photo": "/team/domingos-freitas.jpg",
+          "photo": "/team/domingos-freitas.png",
           "linkedin": "https://www.linkedin.com/in/domingosfreitas/"
         },
         {
           "name": "Miguel Marques",
           "role": "Desenvolvimento e Estratégia",
-          "photo": "/team/miguel-marques.jpg",
+          "photo": "/team/miguel-marques.png",
           "linkedin": "https://www.linkedin.com/in/miguel-marques-cybersecurity/"
         },
         {
           "name": "Kim Peiter Jørgensen",
           "role": "Estratégia",
-          "photo": "/team/kim-jorgensen.jpg",
+          "photo": "/team/kim-jorgensen.png",
           "linkedin": "https://www.linkedin.com/in/kim-peiter-j%C3%B8rgensen-postdoc-b547221/"
         }
       ]

@@ -108,7 +108,7 @@ export function SobreContent({ dict }: SobreContentProps) {
               .slice(0, 2)
               .join("");
             return member.linkedin ? (
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className="team-card-link">
+              <a key={member.name} href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className="team-card-link">
                 <article className="team-card">
                   {member.photo ? (
                     <div className="team-photo team-photo-img">
@@ -139,7 +139,7 @@ export function SobreContent({ dict }: SobreContentProps) {
                 </article>
               </a>
             ) : (
-              <article className="team-card">
+              <article key={member.name} className="team-card">
                 {member.photo ? (
                   <div className="team-photo team-photo-img">
                     <Image src={member.photo} alt={member.name} fill={true} className="team-photo-picture" sizes="(max-width: 768px) 80px, 96px" />
