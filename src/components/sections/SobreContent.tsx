@@ -49,12 +49,12 @@ export function SobreContent({ dict }: SobreContentProps) {
       {/* Two-column intro */}
       <section className="two-col">
         <div className="section-card section-card-soft">
-          <h3 className="section-title">{dict.about.whatIsPdw.title}</h3>
+          <h2 className="section-title">{dict.about.whatIsPdw.title}</h2>
           <p>{dict.about.whatIsPdw.text}</p>
         </div>
         <div className="section-card section-card-emphasis">
           <span className="callout-tag">Coordenação institucional</span>
-          <h3 className="section-title">O papel da TecMinho</h3>
+          <h2 className="section-title">O papel da TecMinho</h2>
           <p>
             A <strong>TecMinho</strong> — interface da Universidade do Minho para a transferência
             de conhecimento, fundada em 1990 — lidera o desenvolvimento técnico e a coordenação
@@ -72,7 +72,7 @@ export function SobreContent({ dict }: SobreContentProps) {
 
       {/* Strategic context */}
       <section className="section-card">
-        <h3 className="section-title">{dict.about.strategicContext.title}</h3>
+        <h2 className="section-title">{dict.about.strategicContext.title}</h2>
         <p>{dict.about.strategicContext.text}</p>
       </section>
 
@@ -80,13 +80,13 @@ export function SobreContent({ dict }: SobreContentProps) {
       <section>
         <header className="section-header">
           <span className="page-hero-eyebrow">Fundamentos técnicos</span>
-          <h3 className="section-title">{dict.about.standards.title}</h3>
+          <h2 className="section-title">{dict.about.standards.title}</h2>
         </header>
         <div className="standards-grid">
           {standards.map((s) => (
             <article className="standard-block" key={s.tag}>
               <span className="standard-tag">{s.tag}</span>
-              <h4 className="standard-name">{s.name}</h4>
+              <h3 className="standard-name">{s.name}</h3>
               <p className="standard-body">{s.body}</p>
             </article>
           ))}
@@ -97,7 +97,7 @@ export function SobreContent({ dict }: SobreContentProps) {
       <section>
         <header className="section-header">
           <span className="page-hero-eyebrow">{dict.about.team.title}</span>
-          <h3 className="section-title">{dict.about.team.subtitle}</h3>
+          <h2 className="section-title">{dict.about.team.subtitle}</h2>
         </header>
         <div className="team-grid">
           {team.map((member) => {
@@ -117,19 +117,16 @@ export function SobreContent({ dict }: SobreContentProps) {
             );
           })}
         </div>
-        <p className="team-footnote">
-          Fotos a fornecer pela equipa de comunicação · placeholders com iniciais até lá.
-        </p>
       </section>
 
       {/* Governance */}
       <section className="two-col">
         <div className="section-card">
-          <h3 className="section-title">{dict.about.governance.title}</h3>
+          <h2 className="section-title">{dict.about.governance.title}</h2>
           <p>{dict.about.governance.text}</p>
         </div>
         <div className="section-card">
-          <h3 className="section-title">Compromisso de exportação</h3>
+          <h2 className="section-title">Compromisso de exportação</h2>
           <p>
             Mais de <strong>dois terços das vendas previstas</strong> destinam-se a mercados
             externos, consolidando a PDW como produto português de exportação na identidade
@@ -142,7 +139,7 @@ export function SobreContent({ dict }: SobreContentProps) {
       <section>
         <header className="section-header">
           <span className="page-hero-eyebrow">Consórcio</span>
-          <h3 className="section-title">{dict.about.partners.title}</h3>
+          <h2 className="section-title">{dict.about.partners.title}</h2>
         </header>
         <div className="partners-list">
           {partners.map((p, i) => (
