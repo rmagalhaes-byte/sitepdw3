@@ -12,6 +12,7 @@
  * Não usa estado nem `useState` — pode ficar como Server Component
  * para SEO e tempo de carregamento.
  */
+import Image from "next/image";
 
 interface SobreContentProps {
   dict: any;
@@ -31,7 +32,7 @@ export function SobreContent({ dict }: SobreContentProps) {
     { tag: "EUDI ARF", name: "Architecture & Reference Framework", body: dict.about.standards.eudi.split(":").slice(1).join(":").trim() },
   ];
 
-  const team = dict.about.team.members as Array<{ name: string; role: string }>;
+  const team = dict.about.team.members as Array<{ name: string; role: string; photo?: string; linkedin?: string }>;
   const partners = dict.about.partners.list as Array<{ name: string; role: string; description?: string }>;
 
   return (
@@ -106,11 +107,55 @@ export function SobreContent({ dict }: SobreContentProps) {
               .map((s) => s[0])
               .slice(0, 2)
               .join("");
-            return (
-              <article key={member.name} className="team-card">
-                <div className="team-photo" aria-hidden="true">
-                  <span>{initials}</span>
-                </div>
+            return member.linkedin ? (
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className="team-card-link">
+                <article className="team-card">
+                  {member.photo ? (
+                    <div className="team-photo team-photo-img">
+                      <Image src={member.photo} alt={member.name} fill={true} className="team-photo-picture" sizes="(max-width: 768px) 80px, 96px" />
+                      <div className="team-photo-linkedin-overlay">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                          <rect width="4" height="12" x="2" y="9"/>
+                          <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="team-photo" aria-hidden="true">
+                      <span>{initials}</span>
+                    </div>
+                  )}
+                  <div className="team-name">{member.name}</div>
+                  <div className="team-role">{member.role}</div>
+                  <div className="team-linkedin-badge">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect width="4" height="12" x="2" y="9"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
+                  </div>
+                </article>
+              </a>
+            ) : (
+              <article className="team-card">
+                {member.photo ? (
+                  <div className="team-photo team-photo-img">
+                    <Image src={member.photo} alt={member.name} fill={true} className="team-photo-picture" sizes="(max-width: 768px) 80px, 96px" />
+                    <div className="team-photo-linkedin-overlay">
+                      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                      </svg>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="team-photo" aria-hidden="true">
+                    <span>{initials}</span>
+                  </div>
+                )}
                 <div className="team-name">{member.name}</div>
                 <div className="team-role">{member.role}</div>
               </article>
