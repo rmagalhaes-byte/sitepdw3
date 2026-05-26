@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:seed": "node seed-posts.js --db data/pdw.db",
+    "db:test": "node test-db.js",
+    "db:copy": "node copy-db.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

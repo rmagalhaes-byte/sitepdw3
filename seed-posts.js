@@ -103,7 +103,7 @@ db.exec(`
 
 // ── posts ─────────────────────────────────────────────────────────────────────
 const insertPost = db.prepare(`
-  INSERT INTO posts
+  INSERT OR IGNORE INTO posts
     (id, type, title, excerpt, embed_json, source_url, status, scheduled_at, published_at,
      pinned, likes_count, comments_enabled, comments_count, created_at, updated_at, author)
   VALUES
@@ -172,7 +172,7 @@ console.log('  ✓ posts (3)');
 
 // ── media ─────────────────────────────────────────────────────────────────────
 db.prepare(`
-  INSERT INTO media (id, kind, filename, public_path, alt, mime, size_bytes, slot, uses, created_at)
+  INSERT OR IGNORE INTO media (id, kind, filename, public_path, alt, mime, size_bytes, slot, uses, created_at)
   VALUES (@id, @kind, @filename, @public_path, @alt, @mime, @size_bytes, @slot, @uses, @created_at)
 `).run({
   id: 2,
@@ -214,7 +214,7 @@ console.log('  ✓ site_sections (2)');
 
 // ── leads ─────────────────────────────────────────────────────────────────────
 const insertLead = db.prepare(`
-  INSERT INTO leads (id, name, institution, email, subject, message, created_at)
+  INSERT OR IGNORE INTO leads (id, name, institution, email, subject, message, created_at)
   VALUES (@id, @name, @institution, @email, @subject, @message, @created_at)
 `);
 
