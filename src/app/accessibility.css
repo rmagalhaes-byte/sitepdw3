@@ -255,3 +255,56 @@
 [data-theme="dark"][data-contrast="high"] .simulator-result-card p {
   color: #ffffff !important;
 }
+
+/* Phone Mockup Caption Pill legibility fixes in Dark Mode & High Contrast */
+[data-theme="dark"] .hero-image-caption {
+  background: var(--color-surface, #152A3E) !important;
+  border-color: var(--color-border, #1E3A52) !important;
+  color: var(--color-text, #E8F4F0) !important;
+}
+
+[data-contrast="high"] .hero-image-caption {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+[data-theme="dark"][data-contrast="high"] .hero-image-caption {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Use Cases Page caption tag (.diploma-case-photo-tag) legibility fixes in Dark Mode & High Contrast */
+[data-theme="dark"] .diploma-case-photo-tag {
+  background: var(--color-surface, #152A3E) !important;
+  border-color: var(--color-border, #1E3A52) !important;
+  color: var(--color-text, #E8F4F0) !important;
+}
+
+[data-contrast="high"] .diploma-case-photo-tag {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+[data-theme="dark"][data-contrast="high"] .diploma-case-photo-tag {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Status Badges (.status) high contrast overrides */
+[data-contrast="high"] .status {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+[data-theme="dark"][data-contrast="high"] .status {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+
