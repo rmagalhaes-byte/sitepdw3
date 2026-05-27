@@ -39,6 +39,13 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
     setStep(0);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleVerify();
+    }
+  };
+
   return (
     <div className="simulator-card">
       <div className="simulator-glow" />
@@ -69,6 +76,10 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               onClick={handleVerify}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
+              role="button"
+              aria-label={lang === 'pt' ? 'Simular verificação de diploma digital' : 'Simulate digital diploma verification'}
               whileHover={{ scale: 1.02 }}
             >
               <div className="simulator-icon-large">
@@ -76,9 +87,9 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
               </div>
               <div style={{ fontWeight: 600 }}>{t.degree}</div>
               <div style={{ fontSize: '14px', color: 'var(--color-muted)' }}>{t.issuer}</div>
-              <button className="cta" style={{ marginTop: '24px' }}>
+              <div className="cta" style={{ marginTop: '24px' }}>
                 {t.verifyBtn}
-              </button>
+              </div>
             </motion.div>
           )}
 

@@ -70,8 +70,7 @@ export function LeadFormSection({ dict, initialEmail, lang }: LeadFormSectionPro
     color: "var(--color-text)",
     fontSize: 14,
     fontFamily: "inherit",
-    outline: "none",
-    transition: "border-color 0.15s",
+    transition: "border-color 0.15s, box-shadow 0.15s",
     boxSizing: "border-box",
   };
 

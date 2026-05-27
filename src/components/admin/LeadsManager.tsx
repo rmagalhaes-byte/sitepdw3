@@ -65,7 +65,7 @@ export function LeadsManager() {
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           <button
-            className="btn btn--ghost btn--sm"
+            className="admin-btn admin-btn--ghost"
             onClick={sendTestEmail}
             disabled={testStatus === 'sending'}
             style={{ fontSize: 13 }}
@@ -76,7 +76,7 @@ export function LeadsManager() {
             {testStatus === 'error' && '✗ Erro no envio'}
           </button>
           <button
-            className="btn btn--primary btn--sm"
+            className="admin-btn admin-btn--primary"
             onClick={downloadCsv}
             disabled={total === 0}
             style={{ fontSize: 13 }}

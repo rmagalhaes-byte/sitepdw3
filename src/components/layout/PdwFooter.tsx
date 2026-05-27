@@ -144,7 +144,7 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
             <h3 className="footer-col-title">
               {lang === "pt" ? "Navegação" : "Navigation"}
             </h3>
-            <nav className="footer-nav" aria-label="Footer navigation">
+            <nav className="footer-nav" aria-label={lang === "pt" ? "Navegação do rodapé" : "Footer navigation"}>
               {quickLinks.map((link) => (
                 <Link
                   key={link.href}
